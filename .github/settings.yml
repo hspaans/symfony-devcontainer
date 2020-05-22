@@ -6,10 +6,10 @@ repository:
   #name: repo-name
 
   # A short description of the repository that will show up on GitHub
-  description: VSCode Dev Container for Ansible
+  description: VSCode Dev Container for Symfony
 
   # A list of topics that willl show up on GitHub
-  topics: vscode, vscode-remote, vscode-devcontainer, ansible
+  topics: vscode, vscode-remote, vscode-devcontainer, php, symfony
   
   # A URL with more information about the repository
   #homepage: https://example.github.io/
