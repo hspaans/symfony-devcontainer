@@ -33,7 +33,7 @@ RUN apt-get update \
     && rmdir /root/.symfony/bin /root/.symfony \
     #
     # Install PHP extension: zip
-    && apt-get -y install libzip-dev \
+    && apt-get -y install --no-install-recommends libzip-dev \
     && yes | pecl install zip \
     && echo "extension=$(find /usr/local/lib/php/extensions/ -name zip.so)" > /usr/local/etc/php/conf.d/zip.ini \
     #
@@ -47,7 +47,7 @@ RUN apt-get update \
     && groupadd --gid $USER_GID $USERNAME \
     && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
     # [Optional] Add sudo support for the non-root user
-    # && apt-get install -y sudo \
+    # && apt-get -y install --no-install-recommends sudo \
     # && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
     # && chmod 0440 /etc/sudoers.d/$USERNAME \
     #
