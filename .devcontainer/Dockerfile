@@ -21,7 +21,7 @@ RUN apt-get update \
     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
     #
     # Install git iproute2, procps, lsb-release (useful for CLI installs)
-    && apt-get -y install git iproute2 procps iproute2 lsb-release rcm unzip \
+    && apt-get -y install --no-install-recommends git iproute2 procps iproute2 lsb-release rcm unzip \
     #
     # Install Composer
     && curl -sS https://getcomposer.org/installer | php \
@@ -33,7 +33,7 @@ RUN apt-get update \
     && rmdir /root/.symfony/bin /root/.symfony \
     #
     # Install PHP extension: zip
-    && apt-get -y install libzip-dev \
+    && apt-get -y install --no-install-recommends libzip-dev \
     && yes | pecl install zip \
     && echo "extension=$(find /usr/local/lib/php/extensions/ -name zip.so)" > /usr/local/etc/php/conf.d/zip.ini \
     #
@@ -47,9 +47,9 @@ RUN apt-get update \
     && groupadd --gid $USER_GID $USERNAME \
     && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
     # [Optional] Add sudo support for the non-root user
-    && apt-get install -y sudo \
-    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
-    && chmod 0440 /etc/sudoers.d/$USERNAME \
+    # && apt-get -y install --no-install-recommends sudo \
+    # && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
+    # && chmod 0440 /etc/sudoers.d/$USERNAME \
     #
     # Clean up
     && apt-get autoremove -y \
