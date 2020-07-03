@@ -37,10 +37,15 @@ RUN apt-get update \
     && yes | pecl install zip \
     && echo "extension=$(find /usr/local/lib/php/extensions/ -name zip.so)" > /usr/local/etc/php/conf.d/zip.ini \
     #
-    # Install PHP extension: zip
+    # Install PHP extension: intl
     && apt-get -y install --no-install-recommends libicu-dev \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
+    #
+    # Install PHP extension: opcache
+    # && apt-get -y install --no-install-recommends libicu-dev \
+    && docker-php-ext-configure opcache \
+    && docker-php-ext-install opcache \
     #
     # Install PHP extension: xdebug
     && yes | pecl install xdebug \
