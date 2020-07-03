@@ -32,6 +32,9 @@ RUN apt-get update \
     && mv /root/.symfony/bin/symfony /usr/local/bin/symfony \
     && rmdir /root/.symfony/bin /root/.symfony \
     #
+    # Set local PHP settings
+    && echo "short_open_tag=off" > /usr/local/etc/php/conf.d/local.ini \
+    #
     # Install PHP extension: zip
     && apt-get -y install --no-install-recommends libzip-dev \
     && yes | pecl install zip \
