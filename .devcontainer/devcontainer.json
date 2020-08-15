@@ -19,6 +19,7 @@
 	"remoteUser": "vscode",
 
 	"extensions": [
+		"editorconfig.editorconfig",
 		"felixfbecker.php-debug",
 		"felixfbecker.php-intellisense",
 		"ikappas.composer"
