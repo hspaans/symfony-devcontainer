@@ -16,6 +16,8 @@ ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Configure apt and install packages
 # hadolint ignore=DL3008
 RUN apt-get update \
