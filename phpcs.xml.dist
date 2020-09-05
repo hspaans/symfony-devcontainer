@@ -91,7 +91,7 @@
         <element key="mbreg_search_getpos" value="mb_ereg_search_getpos" />
         <element key="mbreg_search_setpos" value="mb_ereg_search_setpos" />
         <!-- Deprecated Features 7.4, https://secure.php.net/manual/en/migration74.deprecated.php -->
-        <!-- PHP Core ¶ -->
+        <!-- PHP Core -->
         <element key="is_real" value="is_float" />
         <element key="base_convert" value="null" />
         <element key="bindec" value="null" />
