@@ -19,7 +19,7 @@ ARG USER_GID=$USER_UID
 # SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Configure apt and install packages
-# hadolint ignore=DL3008
+# hadolint ignore=DL3008,DL4006
 RUN apt-get update \
     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
     #
