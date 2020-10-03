@@ -16,7 +16,7 @@ ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+# SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Configure apt and install packages
 # hadolint ignore=DL3008
@@ -34,30 +34,31 @@ RUN apt-get update \
     && curl -sS https://get.symfony.com/cli/installer | bash \
     && mv /root/.symfony/bin/symfony /usr/local/bin/symfony \
     && rmdir /root/.symfony/bin /root/.symfony \
+    && /usr/local/bin/symfony self-update --no-interaction \
     #
     # Set local PHP settings
     && echo "short_open_tag=off" > /usr/local/etc/php/conf.d/local.ini \
+    && echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/local.ini \
+    && echo "xdebug.remote_autostart=on" >> /usr/local/etc/php/conf.d/local.ini \
+    #
+    # Install PHP dependencies
+    && apt-get -y install --no-install-recommends libzip-dev libicu-dev \
     #
     # Install PHP extension: zip
-    && apt-get -y install --no-install-recommends libzip-dev \
-    && yes | pecl install zip \
-    && echo "extension=$(find /usr/local/lib/php/extensions/ -name zip.so)" > /usr/local/etc/php/conf.d/zip.ini \
+    && docker-php-ext-configure zip \
+    && docker-php-ext-install zip \
     #
     # Install PHP extension: intl
-    && apt-get -y install --no-install-recommends libicu-dev \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
     #
     # Install PHP extension: opcache
-    # && apt-get -y install --no-install-recommends libicu-dev \
     && docker-php-ext-configure opcache \
     && docker-php-ext-install opcache \
     #
     # Install PHP extension: xdebug
     && yes | pecl install xdebug \
-    && echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini \
-    && echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/xdebug.ini \
-    && echo "xdebug.remote_autostart=on" >> /usr/local/etc/php/conf.d/xdebug.ini \
+    && docker-php-ext-enable xdebug \
     #
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
     && groupadd --gid "$USER_GID" "$USERNAME" \
