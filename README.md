@@ -11,16 +11,16 @@ Add `.devcontainer/devcontainer.json` to your repository.
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash"
   },
-  "appPort": [],
+  "appPort": [8000],
   "postCreateCommand": "",
   "remoteUser": "vscode",
   "extensions": [
     "github.vscode-pull-request-github",
-	"editorconfig.editorconfig",
-	"felixfbecker.php-debug",
-	"felixfbecker.php-intellisense",
-	"ikappas.composer",
-	"redhat.vscode-yaml"
+    "editorconfig.editorconfig",
+    "felixfbecker.php-debug",
+    "felixfbecker.php-intellisense",
+    "ikappas.composer",
+    "redhat.vscode-yaml"
   ]
 }
 ```
