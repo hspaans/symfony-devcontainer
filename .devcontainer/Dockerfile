@@ -5,6 +5,8 @@
 
 FROM php:7.3.23-cli
 
+LABEL org.opencontainers.image.source=https://github.com/hspaans/symfony-devcontainer
+
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
 
