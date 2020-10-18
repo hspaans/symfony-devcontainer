@@ -1,27 +1,24 @@
 {
-	"name": "Symfony",
-	"dockerFile": "Dockerfile",
-
-	"settings": {
-		"composer.executablePath": "/usr/local/bin/composer",
-		"intelephense.phpdoc.useFullyQualifiedNames": true,
-		"php.suggest.basic": false,
-		"php.validate.enable": true,
-		"terminal.integrated.shell.linux": "/bin/bash"
-	},
-
-	"appPort": [
-		8000
-	],
-
-	"postCreateCommand": "php -v",
-
-	"remoteUser": "vscode",
-
-	"extensions": [
-		"editorconfig.editorconfig",
-		"felixfbecker.php-debug",
-		"felixfbecker.php-intellisense",
-		"ikappas.composer"
-	]
+    "name": "Symfony",
+    "dockerFile": "Dockerfile",
+    "settings": {
+        "composer.executablePath": "/usr/local/bin/composer",
+        "intelephense.phpdoc.useFullyQualifiedNames": true,
+        "php.suggest.basic": false,
+        "php.validate.enable": true,
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "appPort": [
+        8000
+    ],
+    "postCreateCommand": "php -v",
+    "remoteUser": "vscode",
+    "extensions": [
+        "github.vscode-pull-request-github",
+        "editorconfig.editorconfig",
+        "felixfbecker.php-debug",
+        "felixfbecker.php-intellisense",
+        "ikappas.composer",
+        "redhat.vscode-yaml"
+    ]
 }
