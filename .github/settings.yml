@@ -1,6 +1,7 @@
 ---
-  repository:
-    description: Devcontainer for Symfony
-    topics: vscode, codespaces, devcontainer, php, symfony
-    delete_branch_on_merge: true
-    has_wiki: false
+repository:
+  description: Devcontainer for Symfony
+  topics: vscode, codespaces, devcontainer, php, symfony
+  delete_branch_on_merge: true
+  has_wiki: false
+  private: false
