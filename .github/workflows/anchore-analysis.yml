@@ -25,8 +25,6 @@ jobs:
         with:
           image: "localbuild/testimage:latest"
           acs-report-enable: true
-          severity-cutoff: critical
-          fail-build: false
 
       - name: Upload Anchore Scan Report
         uses: github/codeql-action/upload-sarif@v1
