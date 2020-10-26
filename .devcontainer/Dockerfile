@@ -5,6 +5,7 @@
 
 FROM php:7.3.23-cli
 
+LABEL org.opencontainers.image.description="Symfony devcontainer for VSCode or Codespaces"
 LABEL org.opencontainers.image.source=https://github.com/hspaans/symfony-devcontainer
 
 # Avoid warnings by switching to noninteractive
