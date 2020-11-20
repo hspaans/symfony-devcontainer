@@ -24,9 +24,3 @@ Add `.devcontainer/devcontainer.json` to your repository.
   ]
 }
 ```
-
-## Available version
-
-| Symfony CLI |PHP Version | Container Tag | Status    |
-|:-----------:|:----------:|:-------------:|:---------:|
-| 4.20.0      | 7.3.23     | 4.20.0        | Published |
