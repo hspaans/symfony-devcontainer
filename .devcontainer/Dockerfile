@@ -3,7 +3,7 @@
 # Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
 #-------------------------------------------------------------------------------------------------------------
 
-FROM php:7.4.13-cli
+FROM php:7.4.14-cli
 
 LABEL org.opencontainers.image.description="Symfony devcontainer for VSCode or Codespaces"
 LABEL org.opencontainers.image.source=https://github.com/hspaans/symfony-devcontainer
