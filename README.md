@@ -1,5 +1,7 @@
 # Devcontainer for Symfony
 
+> NOTICE: This devcontainer has been replaced by [php-devcontainer](https://github.com/hspaans/php-devcontainer) and will be archived soon and later in 2021.
+
 ## Using within you project
 
 Add `.devcontainer/devcontainer.json` to your repository.
